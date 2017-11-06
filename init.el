@@ -60,7 +60,7 @@
 ;;(tool-bar-mode 0)
 
 ;; Msys2などによる各種Unixコマンドのinfo形式のマニュアルがあるディレクトリを追加
-(setq Info-default-directory-list (cons "c:/msys64/usr/share/info" Info-default-directory-list))
+;;;(setq Info-default-directory-list (cons "c:/msys64/usr/share/info" Info-default-directory-list))
 
 ;;; "global key binding"
 ;;(global-set-key [(delete)] 'delete-char)
@@ -81,33 +81,33 @@
 ;;;(define-key ctl-x-4-map "V" 'find-variable-other-window)
 ;;;(define-key ctl-x-5-map "V" 'find-variable-other-frame)
 
-;; C-, <KEY>で自分用のコマンドが起動する
-(let ((map (make-sparse-keymap)))
-    (global-set-key [(control ?,)] map)
-
-    (define-key map "=" 'bm-show-code-mode)
-    (define-key map "e" 'bm-find-elisp-symbol)
-    (define-key map "\C-e" 'bm-find-elisp-file)
-    (define-key map "p" 'bm-perl-find)
-    (define-key map "P" 'bm-perl-grep-perldoc)
-    (define-key map "c" 'iman)
-    (define-key map "r" 'bm-rfc-find)
-    (define-key map "y" 'bm-syntax-show-descriptor)
-    (define-key map "b" 'bookmark-jump)
-    (define-key map "v" 'quick-calc)
-    (define-key map "j" 'goto-line)
-    (define-key map "l" '(lambda () (interactive) (recenter 0)))
-    (define-key map "\C-l" '(lambda () (interactive) (recenter -1)))
-    (define-key map "a" 'bm-insert-info-link)
-    (define-key map "n" 'bm-goto-link)
-    (define-key map "s" 'bm-shell)
-    (define-key map "8" 'bm-tab8)
-    (define-key map "4" 'bm-tab4)
-    (define-key map "0" 'bm-kill-buffer-and-window)
-    (define-key map "i" 'bm-right-justify-from-here)
-    (define-key map "h" 'hyperspec-lookup)
-    (define-key map "d" 'islisp-hyperdraft)
-    )
+;;; C-, <KEY>で自分用のコマンドが起動する
+;;(let ((map (make-sparse-keymap)))
+;;    (global-set-key [(control ?,)] map)
+;;
+;;    (define-key map "=" 'bm-show-code-mode)
+;;    (define-key map "e" 'bm-find-elisp-symbol)
+;;    (define-key map "\C-e" 'bm-find-elisp-file)
+;;    (define-key map "p" 'bm-perl-find)
+;;    (define-key map "P" 'bm-perl-grep-perldoc)
+;;    (define-key map "c" 'iman)
+;;    (define-key map "r" 'bm-rfc-find)
+;;    (define-key map "y" 'bm-syntax-show-descriptor)
+;;    (define-key map "b" 'bookmark-jump)
+;;    (define-key map "v" 'quick-calc)
+;;    (define-key map "j" 'goto-line)
+;;    (define-key map "l" '(lambda () (interactive) (recenter 0)))
+;;    (define-key map "\C-l" '(lambda () (interactive) (recenter -1)))
+;;    (define-key map "a" 'bm-insert-info-link)
+;;    (define-key map "n" 'bm-goto-link)
+;;    (define-key map "s" 'bm-shell)
+;;    (define-key map "8" 'bm-tab8)
+;;    (define-key map "4" 'bm-tab4)
+;;    (define-key map "0" 'bm-kill-buffer-and-window)
+;;    (define-key map "i" 'bm-right-justify-from-here)
+;;    (define-key map "h" 'hyperspec-lookup)
+;;    (define-key map "d" 'islisp-hyperdraft)
+;;    )
 
 ;; インデントにタブ文字を使わずスペースを使う
 (setq-default indent-tabs-mode nil)
@@ -119,10 +119,10 @@
 
 ;;; mcomplete 峯島作のミニバッファの補完パッケージ
 ;; https://github.com/nenbutsu/mcomplete
-(require 'mcomplete)
-(turn-on-mcomplete-mode)
-(require 'completing-help)
-(turn-on-completing-help-mode)
+;;(require 'mcomplete)
+;;(turn-on-mcomplete-mode)
+;;(require 'completing-help)
+;;(turn-on-completing-help-mode)
 
 
 (require 'eldoc)
@@ -136,35 +136,35 @@
 	      (eldoc-mode t)))
 
 ;; lisp-interaction-mode
-(add-hook 'lisp-interaction-mode-hook
-	  #'(lambda ()
-                ;;;(show-paren-mode t)
-	      (define-key lisp-interaction-mode-map
-		[return] 'newline-and-indent)
-	      (eldoc-mode t)))
+;;(add-hook 'lisp-interaction-mode-hook
+;;	  #'(lambda ()
+;;                ;;;(show-paren-mode t)
+;;	      (define-key lisp-interaction-mode-map
+;;		[return] 'newline-and-indent)
+;;	      (eldoc-mode t)))
 
 ;; Bookmarks
-(setq bookmark-sort-flag nil)
+;;(setq bookmark-sort-flag nil)
 
 ;; hyperspec
-(eval-after-load "hyperspec" '(load "hyperspec-addon"))
-(require 'hyperspec)
-(setq common-lisp-hyperspec-root "file:///C:/Program%20Files%20%28x86%29/LispWorks/lib/6-1-0-0/manual/online/CLHS/")
-(require 'hyperdraft)
+;;(eval-after-load "hyperspec" '(load "hyperspec-addon"))
+;;(require 'hyperspec)
+;;(setq common-lisp-hyperspec-root "file:///C:/Program%20Files%20%28x86%29/LispWorks/lib/6-1-0-0/manual/online/CLHS/")
+;;(require 'hyperdraft)
 
-(setq browse-url-browser-function 'browse-url-firefox)
+;;(setq browse-url-browser-function 'browse-url-firefox)
 
-(custom-set-variables
- ;; custom-set-variables was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- '(c-default-style
-   (quote
-    ((c-mode . "K&R")
-     (java-mode . "java")
-     (awk-mode . "awk")
-     (other . "gnu")))))
-(put 'upcase-region 'disabled nil)
-(put 'narrow-to-region 'disabled nil)
-(put 'downcase-region 'disabled nil)
+;;;(custom-set-variables
+;;; ;; custom-set-variables was added by Custom.
+;;; ;; If you edit it by hand, you could mess it up, so be careful.
+;;; ;; Your init file should contain only one such instance.
+;;; ;; If there is more than one, they won't work right.
+;;; '(c-default-style
+;;;   (quote
+;;;    ((c-mode . "K&R")
+;;;     (java-mode . "java")
+;;;     (awk-mode . "awk")
+;;;     (other . "gnu")))))
+;;;(put 'upcase-region 'disabled nil)
+;;;(put 'narrow-to-region 'disabled nil)
+;;;(put 'downcase-region 'disabled nil)
